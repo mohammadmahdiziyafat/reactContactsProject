@@ -1,7 +1,9 @@
 import React from "react";
 import Contact from "./Contact";
-import { PINK} from "../../helpers/colors";
-const Contacts = () => {
+import { CURRENTLINE, PINK } from "../../helpers/colors";
+// spinner loading 
+import Spinner from "../Spinner";
+const Contacts = ({ Contacts, loading }) => {
   return (
     <React.Fragment>
       <section className="container">
@@ -18,13 +20,32 @@ const Contacts = () => {
           </div>
         </div>
       </section>
-      <section className="container">
-        <div className="row">
-          {/* Contact */}
-          <Contact />
-        </div>
-      </section>
-      
+      {
+        loading ? <Spinner /> :
+          (
+            <section className="container">
+              <div className="row">
+                {/* Contact */}
+                {
+                  Contacts.length > 0 ? Contacts.map(c => ((
+                    <Contact key={c.id} Contacts={c} />
+                  ))
+                  )
+                    :
+                    (
+                      <div className="text-center py-5" style={{ backgroundColor: CURRENTLINE }}>
+                        <p className="h3">مخاطب یافت نشد</p>
+                        <img src={require('../../assets/no-found.gif')} alt='not found' className="w-25"></img>
+                      </div>
+                    )
+                }
+
+              </div>
+            </section>
+
+          )
+      }
+
     </React.Fragment>
   );
 };
