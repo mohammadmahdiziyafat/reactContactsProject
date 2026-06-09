@@ -24,6 +24,19 @@
   color: white;
 }
 
+.not-found {
+  border-radius: 20px;
+}
+
+.d-block {
+  margin: auto !important;
+  margin-top: 75px !important;
+}
+
+.grid {
+  margin-top: 30px !important;
+}
+
 .App-link {
   color: #61dafb;
 }
