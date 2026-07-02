@@ -6,7 +6,7 @@ import Spinner from "../Spinner";
 const Contacts = ({ Contacts, loading }) => {
   return (
     <React.Fragment>
-      <section className="container">
+      <section className="container ">
         <div className="grid">
           <div className="row">
             <div className="col">
