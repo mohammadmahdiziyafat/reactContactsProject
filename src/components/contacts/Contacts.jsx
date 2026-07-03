@@ -1,12 +1,12 @@
 import React from "react";
 import Contact from "./Contact";
-import { CURRENTLINE, PINK } from "../../helpers/colors";
+import { CURRENTLINE, ORANGE, PINK, } from "../../helpers/colors";
 // spinner loading
 import Spinner from "../Spinner";
 const Contacts = ({ Contacts, loading }) => {
   return (
     <React.Fragment>
-      <section className="container">
+      <section className="container ">
         <div className="grid">
           <div className="row">
             <div className="col">
@@ -33,7 +33,7 @@ const Contacts = ({ Contacts, loading }) => {
                 className="text-center py-5"
                 style={{ backgroundColor: CURRENTLINE, borderRadius: "20px" }}
               >
-                <p className="h3">مخاطب یافت نشد</p>
+                <p className="h3 " style={{ color: ORANGE, fontSize: '2rem' }}>مخاطب یافت نشد...</p>
                 <img
                   src={require("../../assets/no-found.gif")}
                   alt="not found"
