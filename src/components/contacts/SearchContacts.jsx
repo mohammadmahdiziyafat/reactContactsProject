@@ -1,4 +1,5 @@
 import { PURPLE } from "../../helpers/colors";
+
 const SearchContact = () => {
   return (
     <div className="input-group w-75 mx-2 " dir="ltr">

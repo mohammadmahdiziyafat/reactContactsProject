@@ -1,6 +1,6 @@
-import { CURRENTLINE, CYAN, ORANGE, PURPLE, RED } from '../../helpers/colors'
+import { CURRENTLINE, CYAN, ORANGE, PURPLE, RED } from "../../helpers/colors";
 
-const Contact = ({ Contact, loading }) => {
+const Contact = ({ contact, loading }) => {
   return (
     <div className="col md-6">
       {" "}
@@ -8,10 +8,9 @@ const Contact = ({ Contact, loading }) => {
         <div className="card-body">
           <div className="row align-items-center d-flex justify-content-around">
             <div className="col-md-4 col-sm-4">
-
               <img
-                src={Contact.photo || "https://placehold.co/200x200"}
-                alt={Contact.fullName}
+                src={contact.photo || "https://placehold.co/200x200"}
+                alt={contact.fullName}
                 style={{ border: `1px solid ${PURPLE}` }}
                 className="img-fluid rounded"
               />
@@ -20,17 +19,14 @@ const Contact = ({ Contact, loading }) => {
               <ul className="list-group">
                 <li className="list-group-item list-group-item-dark">
                   نام و نام خانوادگی :{" "}
-                  <span className="fw-bold">{Contact.fullName}</span>
+                  <span className="fw-bold">{contact.fullName}</span>
                 </li>
                 <li className="list-group-item list-group-item-dark">
                   شماره موبایل:{" "}
-                  <span className="fw-bold">{Contact.mobile}</span>
+                  <span className="fw-bold">{contact.mobile}</span>
                 </li>
                 <li className="list-group-item list-group-item-dark">
-                  آدرس ایمیل :{" "}
-                  <span className="fw-bold">
-                    {Contact.email}
-                  </span>
+                  آدرس ایمیل : <span className="fw-bold">{contact.email}</span>
                 </li>
               </ul>
             </div>
@@ -41,16 +37,10 @@ const Contact = ({ Contact, loading }) => {
               >
                 <i className="fa fa-eye"></i>
               </button>
-              <button
-                className=" btn mu-1 "
-                style={{ backgroundColor: CYAN }}
-              >
+              <button className=" btn mu-1 " style={{ backgroundColor: CYAN }}>
                 <i className="fa fa-pen"></i>
               </button>
-              <button
-                className=" btn mu-1 "
-                style={{ backgroundColor: RED }}
-              >
+              <button className=" btn mu-1 " style={{ backgroundColor: RED }}>
                 <i className="fa fa-trash"></i>
               </button>
             </div>
@@ -58,6 +48,6 @@ const Contact = ({ Contact, loading }) => {
         </div>
       </div>
     </div>
-  )
-}
-export default Contact
+  );
+};
+export default Contact;
