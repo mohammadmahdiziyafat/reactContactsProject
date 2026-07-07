@@ -53,6 +53,14 @@ input::placeholder {
   color: white;
 }
 
+.fdd {
+  display: grid !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-left: 60px !important;
+
+}
+
 @keyframes loading {
   from {
     opacity: 0;

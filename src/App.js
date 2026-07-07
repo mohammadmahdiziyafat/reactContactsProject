@@ -1,28 +1,29 @@
-import { useState, useEffect, use } from 'react';
+import { useState, useEffect, } from 'react';
 
 import './App.css';
 
 import { Navigate, Routes, Route, useNavigate } from 'react-router-dom'
 
 // import  services for clean code or refactor
-import { getAllContacts, getAllGroups, getGroup, createContact } from './services/contactService';
+import { getAllContacts, getAllGroups, createContact } from './services/contactService';
 // better way importing Conponent
-import { Contact, AddContact, Contacts, EditContact, ViewContact, Navbar } from './components/index';
+import { AddContact, Contacts, EditContact, ViewContact, Navbar } from './components/index';
 
 const App = () => {
   const [getContacts, setContacts] = useState([]);
+  const [forceRender, setForceRender] = useState(false)
   const [loading, setLoading] = useState(false)
   const [groups, setGroup] = useState({});
   const [form, setForm] = useState({
-    name: "",
+    fullName: "",
     photo: "",
     mobile: "",
     email: "",
     job: "",
     group: "",
   })
-  const [errors, setErrors] = useState({});
-  const navigate = useNavigate({})
+
+  const navigate = useNavigate();
   // fetch API
   useEffect(() => {
     const fetchData = async () => {
@@ -46,15 +47,37 @@ const App = () => {
     }
     fetchData();
   }, [])
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true)
+        // fetch contact user
+        const { data: contactsData } = await getAllContacts();
 
+        console.log(contactsData)
+        // fetch contact user type
+
+        // set
+        setContacts(contactsData);
+        ;
+        setLoading(false)
+      }
+      catch (err) {
+        console.log(err.message);
+        setLoading(false)
+      }
+    }
+    fetchData();
+  }, [forceRender])
   const createContactForm = async (event) => {
     event.preventDefault();
     try {
-      const status = await createContact(form);
+      const { status } = await createContact(form);
       console.log(status);
-      
+
       if (status === 201) {
         setForm({});
+        setForceRender(!forceRender);
         navigate("/contacts")
       }
     }

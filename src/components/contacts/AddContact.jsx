@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 import Spinner from "../Spinner";
 import { COMMENT, GREEN, PURPLE } from "../../helpers/colors";
-import { createContact } from "../../services/contactService";
+
 
 const AddContact = ({
   loading,
@@ -20,6 +20,7 @@ const AddContact = ({
           <section className="p-3">
             <img
               src={require("../../assets/man-taking-note.png")}
+              alt="man add"
               style={{
                 position: "absolute",
 
@@ -46,8 +47,8 @@ const AddContact = ({
                   <form onSubmit={createContactForm}>
                     <div className="mb-2">
                       <input
-                        name="name"
-                        value={form.name}
+                        name="fullName"
+                        value={form.fullName}
                         onChange={setContactInfo}
                         type="text"
                         className="form-control"
