@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import Contact from "./Contact";
-import { CURRENTLINE, ORANGE, PINK } from "../../helpers/colors";
+import { CURRENTLINE, ORANGE } from "../../helpers/colors";
 // spinner loading
 import Spinner from "../Spinner";
 const Contacts = ({ getContacts, loading }) => {
@@ -9,18 +9,20 @@ const Contacts = ({ getContacts, loading }) => {
     <React.Fragment>
       <section className="container ">
         <div className="grid">
-          <div className="row">
-            <div className="col">
-              <p className="h3">
+          <div className="row btn">
+            <div className="col btn-bg">
+              
                 <NavLink
                   to={"/contacts/Add"}
-                  className="btn mx-2"
-                  style={{ backgroundColor: PINK }}
+                  className=" btn-inner"
+                  
                 >
+                  <p className="h3">
                   ساخت مخاطب جدید
                   <i className="fa fa-plus-circle mx-2"></i>
+                   </p>
                 </NavLink>
-              </p>
+             
             </div>
           </div>
         </div>
